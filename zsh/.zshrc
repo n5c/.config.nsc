@@ -1,0 +1,66 @@
+# refs: oh-my-zsh configs
+
+export CFG=$HOME/.config
+export ZSH=$CFG/zsh
+export TMX=$CFG/tmux
+
+# correction
+setopt correct_all
+
+# changing/making/removing directory
+setopt auto_name_dirs
+setopt auto_pushd
+setopt pushd_ignore_dups
+setopt pushdminus
+
+# grep options
+export GREP_OPTIONS="--color=auto"
+export GREP_COLOR='1;32'
+
+# history
+HISTFILE=$ZSH/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt extended_history
+setopt hist_expire_dups_first
+setopt hist_ignore_dups # ignore duplication command history list
+setopt hist_ignore_space
+setopt hist_verify
+setopt inc_append_history
+setopt share_history # share command history data
+
+## smart urls
+autoload -U url-quote-magic
+zle -N self-insert url-quote-magic
+
+## file rename magick
+bindkey "^[m" copy-prev-shell-word
+
+## jobs
+setopt long_list_jobs
+
+## pager
+export PAGER="less"
+export LESS="-R"
+
+export LC_CTYPE=$LANG
+
+# ls colors
+autoload colors; colors;
+export LSCOLORS="Gxfxcxdxbxegedabagacad"
+ls --color -d . &>/dev/null 2>&1 && alias ls='ls --color=tty' || alias ls='ls -G'
+
+setopt auto_cd
+setopt multios
+setopt cdablevarS
+
+# load libraries
+for zsh_file ($ZSH/lib/*.zsh); do
+	source $zsh_file
+done
+
+# run tmux
+#tmux -2 -f $TMX/.tmux.conf
+
+export PATH=$HOME/bin:$PATH
+
