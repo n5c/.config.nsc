@@ -1,5 +1,7 @@
 *.swp
 
+vim/bundle
+
 zsh/.zcompdump
 zsh/.zsh_history
 
