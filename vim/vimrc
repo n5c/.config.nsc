@@ -1,0 +1,201 @@
+" refs: spf13-vim
+
+" vundle {
+	set nocompatible
+	filetype off
+
+	" set the runtime path to include Vundle and initialize
+	set rtp+=~/.config/vim/bundle/vundle
+	call vundle#rc()
+	" alternatively, pass a path where Vundle should install plugins
+	" "let path = '~/some/path/here'
+	" "call vundle#rc(path)
+
+	" let Vundle manage Vundle, required
+	Plugin 'gmarik/vundle'
+
+	" The following are examples of different formats supported.
+	" Keep Plugin commands between here and filetype plugin indent on.
+	" scripts on GitHub repos
+	"Plugin 'tpope/vim-fugitive'
+	"Plugin 'Lokaltog/vim-easymotion'
+	"Plugin 'tpope/vim-rails.git'
+	"Plugin 'Lokaltog/vim-powerline'
+	"Plugin 'wesleyche/SrcExpl'
+	Plugin 'bling/vim-airline'
+	Plugin 'altercation/vim-colors-solarized'
+	"Plugin 'chriskempson/vim-tomorrow-theme'
+	Plugin 'kien/ctrlp.vim'
+	Plugin 'Valloric/YouCompleteMe'
+	
+	" The sparkup vim script is in a subdirectory of this repo called vim.
+	" Pass the path to set the runtimepath properly.
+	"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+	
+	" scripts from http://vim-scripts.org/vim/scripts.html
+	"Plugin 'L9'
+	"Plugin 'FuzzyFinder'
+	"Plugin 'cscope.vim'
+	"Plugin 'surround.vim'
+	Plugin 'Syntastic'
+
+	" scripts not on GitHub
+	"Plugin 'git://git.wincent.com/command-t.git'
+	
+	" git repos on your local machine (i.e. when working on your own plugin)
+	"Plugin 'file:///home/gmarik/path/to/plugin'
+" }
+
+" General {
+	filetype plugin indent on " Automatically detect file types
+	syntax on " Syntax highlighting
+
+	set shortmess+=filmrxoOtT
+	set virtualedit=onemore
+	"set spell
+	set hidden
+	set nobackup
+" }
+
+" UI {
+	set t_Co=256
+
+	" using solarized color-scheme {
+		let g:solarized_termcolors=256
+		set background=dark " Assume a light background
+		colorscheme solarized
+		"let g:solarized_termtrans=1
+		let g:solarized_contrast="normal"
+		let g:solarized_visibility="high"
+	" }
+
+	"colorscheme Tomorrow-Night-Eighties
+
+	set showmode " display the current mode
+	set cursorline " highlight current line
+
+	" if has('cmdline_info')
+		"set ruler
+		"set rulerformat=%30(%=\:b%n%y%m%r%w\ %1,%c%V\ %P%) " a ruler on steroids
+		"set showcmd
+		"endif
+
+	set laststatus=2 " show status line
+	set encoding=utf-8
+
+	set backspace=indent,eol,start " backspace for dummies
+	set linespace=0 " no extra spaces between rows
+	set number " show line numbers
+	set showmatch " show matching brackets/parenthesis
+	set incsearch " find as you type search
+	set hlsearch " highlight search terms
+	set ignorecase " case insensitive search
+	set smartcase " case sensitive when upper case present
+	set wildmenu " show list instead of just completing
+	"set wildmode=list:longest,full " command <Tab> completion, list matches, then longest common part, then all
+	set whichwrap=b,s,h,l,<,>,[,] " backspace and cursor keys wrap to
+	set scrolljump=5 " lines to scroll when cursor leaves screen
+	set scrolloff=3 " minimum lines to keep above and below cursor
+	set foldenable " auto fold code
+	"set list
+	"set listchars=tab:,.,trail:.,extends:#,nbsp:. " highlight problematic whitespace
+
+	set winheight=10
+	set winminheight=10
+" }
+
+" Formatting {
+	set tw=0
+	set nowrap " wrap long lines
+	set autoindent " indent at the same level of the previous line
+" }
+
+" Key (re)Mappings {
+	" Navigate and maximize the next window
+	"map <C-W><LEFT>  <C-W><LEFT><C-W>_
+	"map <C-W><RIGHT> <C-W><RIGHT><C-W>_
+	"map <C-W><UP>    <C-W><UP><C-W>_
+	"map <C-W><DOWN>  <C-W><DOWN><C-W>_
+" }
+
+" Plugins {
+
+	" vim-airline {
+		let g:airline#extensions#tabline#enabled = 1
+		let g:airline_powerline_fonts=1
+	" }
+
+	" cscope {
+	"	if has("cscope")
+	"		" use both cscope and ctag for 'ctrl-]', ':ta', and 'vim -t'
+	"		" set cscopetag
+
+	"		" check cscope for definition of a symbol before checking ctags: set to 1
+	"		" if you want the reverse search order.
+	"		set csto=0
+
+	"		" add any cscope database in current directory
+	"		if filereadable(".cscope.out")
+	"			cs add .cscope.out
+	"		endif
+
+	"		" show msg when any other cscope db added
+	"		set cscopeverbose
+	"	endif
+	" }
+
+	" CCTree {
+		"let g:CCTreeOrientation = "rightbelow"
+		"let g:CCTreeCscopeDB = ".cscope.out"
+		"let g:CCTreeRecursiveDepth = 1
+		"let g:CCTreeMinVisibleDepth = 1
+	" }
+
+	" Ctags {
+	"	set tags=./.tags;/,~/.vimtags
+	" }
+
+	" SrcExpl {
+		"" Set the height of Source Explorer window
+		""let g:SrcExpl_winHeight = 10
+
+		"" Set 100 ms for refreshing the Source Explorer
+		"let g:SrcExpl_refreshTime = 1000
+
+		"" Set "Enter" key to jump into the exact definition context
+		""let g:SrcExpl_jumpKey = "<ENTER>"
+
+		"" Set "Space" key for back from the definition context
+		""let g:SrcExpl_gobackKey = "<SPACE>"
+
+		"" In order to Avoid conflicts, the Source Explorer should know what plugins
+		"" are using buffers. And you need add their bufname into the list below
+		"" according to the command ":buffers!"
+		"let g:SrcExpl_pluginList = ["__Tag_List__", "Source_Explorer"]
+
+		"" Enable/Disable the local definition searching, and note that this is not
+		"" guaranteed to work, the Source Explorer doesn't check the syntax for now.
+		"" It only searches for a match with the keyword according to command 'gd'
+		"let g:SrcExpl_searchLocalDef = 1
+
+		"" Do not let the Source Explorer update the tags file when opening
+		"let g:SrcExpl_isUpdateTags = 0
+
+		"" Use 'Exuberant Ctags' with '--sort=foldcase -R .' or '-L cscope.files' to
+		"" create/update a tags file
+		"let g:SrcExpl_updateTagsCmd = "ctags --sort=foldcase -R -f .tags ."
+	" }
+
+	" TagList {
+		"let Tlist_Show_One_File = 1
+		"let Tlist_Exit_OnlyWindow = 1
+		"" let Tlist_Auto_Open = 1
+	" }
+
+	" clang_complete {
+		" let g:clang_library_path = "/usr/lib/"
+	" }
+
+" }
+
+
