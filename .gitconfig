@@ -1,0 +1,12 @@
+[user]
+	email = seechen81@gmail.com
+	name = SeeChen Ng
+
+[core]
+	excludesfile = ${HOME}/.config/.gitignore
+[color]
+	branch = auto
+	diff = auto
+	status = auto
+	log = auto
+
