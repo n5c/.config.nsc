@@ -88,7 +88,7 @@ function __promptline_wrapper {
   printf "%s" "${2}${1}${3}"
 }
 function __promptline_cwd {
-  local dir_limit="3"
+  local dir_limit="5"
   local truncation="⋯"
   local first_char
   local part_count=0
