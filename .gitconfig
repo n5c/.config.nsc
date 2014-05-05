@@ -3,7 +3,7 @@
 	name = SeeChen Ng
 
 [core]
-	excludesfile = ${HOME}/.config/.gitignore
+	excludesfile = /home/nsc/.config/.gitignore.global
 [color]
 	branch = auto
 	diff = auto
