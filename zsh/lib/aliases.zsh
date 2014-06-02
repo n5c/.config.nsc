@@ -8,3 +8,5 @@ alias la='ls -lAh'
 # show history
 alias history='fc -il 1'
 
+# nocorrect
+alias mkdir='nocorrect mkdir'
