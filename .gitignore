@@ -1,0 +1,11 @@
+!install.sh
+
+# Vim
+vim/bundle/*
+vim/.netrwhist
+
+# Zsh
+zsh/.zcompdump
+zsh/.zsh_history
+zsh/cache
+
