@@ -11,3 +11,9 @@
 	status = auto
 	log = auto
 
+[sendemail]
+	smtpencryption = tls
+	smtpserver = smtp.gmail.com
+	smtpuser = seechen81@gmail.com
+	smtpserverport = 587
+	suppresscc = self
