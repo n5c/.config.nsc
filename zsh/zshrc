@@ -14,7 +14,7 @@ setopt pushd_ignore_dups
 setopt pushdminus
 
 # grep options
-export GREP_OPTIONS="--color=auto"
+export GREP_OPTIONS="--color=always"
 export GREP_COLOR='1;32'
 
 # history
