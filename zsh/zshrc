@@ -3,6 +3,7 @@
 export CFG=$HOME/.config
 export ZSH=$CFG/zsh
 export TMX=$CFG/tmux
+export PATH=$HOME/bin:$PATH
 
 # correction
 setopt correct_all
@@ -59,8 +60,10 @@ for zsh_file ($ZSH/lib/*.zsh); do
 	source $zsh_file
 done
 
+# ignore case sensitivity
+unsetopt CASE_GLOB
+
 # run tmux
 #tmux -2 -f $TMX/.tmux.conf
 
-export PATH=$HOME/bin:$PATH
 
