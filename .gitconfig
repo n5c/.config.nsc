@@ -17,3 +17,5 @@
 	smtpuser = seechen81@gmail.com
 	smtpserverport = 587
 	suppresscc = self
+[push]
+	default = simple
