@@ -27,6 +27,8 @@
 	Plugin 'Valloric/YouCompleteMe'
 	Plugin 'edkolev/tmuxline.vim'
 	Plugin 'edkolev/promptline.vim'
+	Plugin 'hewes/unite-gtags'
+	Plugin 'Shougo/unite.vim'
 
 	" The sparkup vim script is in a subdirectory of this repo called vim.
 	" Pass the path to set the runtimepath properly.
@@ -38,6 +40,7 @@
 	"Plugin 'cscope.vim'
 	"Plugin 'surround.vim'
 	Plugin 'Syntastic'
+	Plugin 'gtags.vim'
 
 	" scripts not on GitHub
 	"Plugin 'git://git.wincent.com/command-t.git'
@@ -102,6 +105,8 @@
 
 	set winheight=10
 	set winminheight=10
+
+	set colorcolumn=80
 " }
 
 " Formatting {
@@ -117,6 +122,9 @@
 	"map <C-W><RIGHT> <C-W><RIGHT><C-W>_
 	"map <C-W><UP>    <C-W><UP><C-W>_
 	"map <C-W><DOWN>  <C-W><DOWN><C-W>_
+
+	" set mapleader
+	let mapleader=","
 " }
 
 " Plugins {
@@ -198,6 +206,26 @@
 		" Use 'Exuberant Ctags' with '--sort=foldcase -R .' or '-L cscope.files' to
 		" create/update a tags file
 		"let g:SrcExpl_updateTagsCmd = "ctags --sort=foldcase -R -f .tags ."
+	" }
+
+	" GLOBAL (gtags) {
+		set csprg=gtags-cscope
+		cscope add GTAGS
+
+		nnoremap <leader>gg :execute 'Unite gtags/def:'.expand('<cword>')<CR>
+		nnoremap <leader>gc :execute 'Unite gtags/context'<CR>
+		nnoremap <leader>gr :execute 'Unite gtags/ref'<CR>
+		nnoremap <leader>ge :execute 'Unite gtags/grep'<CR>
+		vnoremap <leader>gg <ESC>:execute 'Unite gtags/def:'.GetVisualSelection()<CR>
+
+		function! GetVisualSelection()
+			let [s:lnum1, s:col1] = getpos("'<")[1:2]
+			let [s:lnum2, s:col2] = getpos("'>")[1:2]
+			let s:lines = getline(s:lnum1, s:lnum2)
+			let s:lines[-1] = s:lines[-1][: s:col2 - (&selection == 'inclusive' ? 1 : 2)]
+			let s:lines[0] = s:lines[0][s:col1 - 1:]
+			return join(s:lines, ' ')
+		endfunction
 	" }
 
 	" TagList {
