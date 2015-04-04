@@ -5,7 +5,7 @@
 	filetype off
 
 	" set the runtime path to include Vundle and initialize
-	set rtp+=~/.config/vim/bundle/vundle
+	set rtp+=~/.config.nsc/vim/bundle/vundle
 	call vundle#rc()
 	" alternatively, pass a path where Vundle should install plugins
 	" "let path = '~/some/path/here'

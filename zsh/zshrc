@@ -1,6 +1,6 @@
 # refs: oh-my-zsh configs
 
-export CFG=$HOME/.config
+export CFG=$HOME/.config.nsc
 export ZSH=$CFG/zsh
 export TMX=$CFG/tmux
 export PATH=$HOME/pkgs/bin:$PATH
