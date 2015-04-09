@@ -25,7 +25,7 @@
 	Plugin 'altercation/vim-colors-solarized'
 	Plugin 'kien/ctrlp.vim'
 	" Plugin 'Valloric/YouCompleteMe'
-	Plugin 'edkolev/tmuxline.vim'
+	" Plugin 'edkolev/tmuxline.vim'
 	Plugin 'edkolev/promptline.vim'
 	Plugin 'hewes/unite-gtags'
 	Plugin 'Shougo/unite.vim'
