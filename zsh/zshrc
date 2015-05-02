@@ -6,7 +6,7 @@ export TMX=$CFG/tmux
 export PATH=$HOME/pkgs/bin:$PATH
 
 # correction
-setopt correct_all
+unsetopt correct_all
 
 # changing/making/removing directory
 setopt auto_name_dirs
