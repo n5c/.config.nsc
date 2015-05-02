@@ -208,6 +208,12 @@
 		"let g:SrcExpl_updateTagsCmd = "ctags --sort=foldcase -R -f .tags ."
 	" }
 
+	" unite-gtags {
+	"	g:unite_source_gtags_project_config = {
+	"				\ '_': { 'treelize': 1 }
+	"				\ }
+	" }
+
 	" GLOBAL (gtags) {
 		set csprg=gtags-cscope
 		cscope add GTAGS
