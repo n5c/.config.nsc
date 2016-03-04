@@ -5,14 +5,15 @@
 	filetype off
 
 	" set the runtime path to include Vundle and initialize
-	set rtp+=~/.config.nsc/vim/bundle/vundle
-	call vundle#rc()
+	""set rtp+=~/.config.nsc/vim/bundle/vundle
+	""call vundle#rc()
+	set rtp+=~/.vim/bundle/Vundle.vim
+	call vundle#begin()
 	" alternatively, pass a path where Vundle should install plugins
-	" "let path = '~/some/path/here'
-	" "call vundle#rc(path)
+	" call vundle#begin('~/some/path/here')
 
 	" let Vundle manage Vundle, required
-	Plugin 'gmarik/vundle'
+	Plugin 'VundleVim/Vundle.vim'
 
 	" The following are examples of different formats supported.
 	" Keep Plugin commands between here and filetype plugin indent on.
@@ -29,6 +30,7 @@
 	Plugin 'edkolev/promptline.vim'
 	Plugin 'hewes/unite-gtags'
 	Plugin 'Shougo/unite.vim'
+	Plugin 'will133/vim-dirdiff'
 
 	" The sparkup vim script is in a subdirectory of this repo called vim.
 	" Pass the path to set the runtimepath properly.
@@ -47,6 +49,21 @@
 
 	" git repos on your local machine (i.e. when working on your own plugin)
 	"Plugin 'file:///home/gmarik/path/to/plugin'
+
+	" All of your Plugins must be added before the following line
+	call vundle#end()            " required
+	filetype plugin indent on    " required
+	" To ignore plugin indent changes, instead use:
+	"filetype plugin on
+	"
+	" Brief help
+	" :PluginList       - lists configured plugins
+	" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+	" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+	" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+	"
+	" see :h vundle for more details or wiki for FAQ
+	" Put your non-Plugin stuff after this line
 " }
 
 " General {
@@ -95,11 +112,13 @@
 	set ignorecase " case insensitive search
 	set smartcase " case sensitive when upper case present
 	set wildmenu " show list instead of just completing
-	"set wildmode=list:longest,full " command <Tab> completion, list matches, then longest common part, then all
+	set wildmode=list:longest,full " command <Tab> completion, list matches, then longest common part, then all
 	set whichwrap=b,s,h,l,<,>,[,] " backspace and cursor keys wrap to
 	set scrolljump=5 " lines to scroll when cursor leaves screen
 	set scrolloff=3 " minimum lines to keep above and below cursor
 	set foldenable " auto fold code
+	set foldmethod=syntax
+	set foldlevel=99 " try to open all folds by default
 	"set list
 	"set listchars=tab:,.,trail:.,extends:#,nbsp:. " highlight problematic whitespace
 
@@ -148,12 +167,12 @@
 	" }
 
 	" YouCompleteMe {
-		let g:ycm_confirm_extra_conf = 0
-		set completeopt-=preview
-		"let g:ycm_min_num_of_chars_for_completion = 1
-		let g:ycm_seed_identifiers_with_syntax = 1
-		nnoremap <F9> :YcmCompleter GoToDefinitionElseDeclaration<CR>
-		let g:ycm_autoclose_preview_window_after_completion=1
+		"let g:ycm_confirm_extra_conf = 0
+		"set completeopt-=preview
+		""let g:ycm_min_num_of_chars_for_completion = 1
+		"let g:ycm_seed_identifiers_with_syntax = 1
+		"nnoremap <F9> :YcmCompleter GoToDefinitionElseDeclaration<CR>
+		"let g:ycm_autoclose_preview_window_after_completion=1
 		"let g:ycm_semantic_triggers = {}
 		"let g:ycm_semantic_triggers.c = ['->', '.', ' ', '(', '[', '&']
 		"let g:ycm_register_as_syntastic_checker = 0
@@ -215,6 +234,8 @@
 	" }
 
 	" GLOBAL (gtags) {
+		"set cscopetag
+		"set cscopeprg='gtags-cscope'
 		set csprg=gtags-cscope
 		cscope add GTAGS
 

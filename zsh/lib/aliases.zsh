@@ -11,3 +11,6 @@ alias history='fc -il 1'
 # nocorrect
 alias mkdir='nocorrect mkdir'
 alias git='nocorrect git'
+
+# vimdiff
+alias vimdiff='vimdiff -c "set diffopt+=iwhite"'
