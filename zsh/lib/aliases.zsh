@@ -14,3 +14,12 @@ alias git='nocorrect git'
 
 # vimdiff
 alias vimdiff='vimdiff -c "set diffopt+=iwhite"'
+
+# gcc
+alias gcc='gcc-7'
+
+# less
+alias less='less -R'
+
+# rg
+alias rg='rg --color=always'
