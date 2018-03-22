@@ -33,6 +33,12 @@
 	Plugin 'hewes/unite-gtags'
 	Plugin 'Shougo/unite.vim'
 	Plugin 'will133/vim-dirdiff'
+	Plugin 'scrooloose/nerdcommenter'
+	Plugin 'jiangmiao/auto-pairs'
+	Plugin 'jremmen/vim-ripgrep.git'
+
+	" rust related
+	Plugin 'rust-lang/rust.vim'
 
 	" The sparkup vim script is in a subdirectory of this repo called vim.
 	" Pass the path to set the runtimepath properly.
