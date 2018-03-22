@@ -19,6 +19,7 @@
 	" Keep Plugin commands between here and filetype plugin indent on.
 	" scripts on GitHub repos
 	Plugin 'tpope/vim-fugitive'
+	Plugin 'tpope/vim-surround'
 	"Plugin 'Lokaltog/vim-easymotion'
 	"Plugin 'tpope/vim-rails.git'
 	Plugin 'wesleyche/SrcExpl'
