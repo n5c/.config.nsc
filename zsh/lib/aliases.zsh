@@ -16,7 +16,10 @@ alias git='nocorrect git'
 alias vimdiff='vimdiff -c "set diffopt+=iwhite"'
 
 # gcc
+if [ `uname` = "Darwin" ]
+then
 alias gcc='gcc-7'
+fi
 
 # less
 alias less='less -R'
