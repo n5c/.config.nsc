@@ -51,6 +51,7 @@
 	"Plugin 'surround.vim'
 	Plugin 'Syntastic'
 	Plugin 'gtags.vim'
+	" Plugin 'zxqfl/tabnine-vim'
 
 	" scripts not on GitHub
 	"Plugin 'git://git.wincent.com/command-t.git'
